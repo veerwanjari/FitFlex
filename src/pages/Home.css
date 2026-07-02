@@ -1,0 +1,374 @@
+/* Hero */
+.ff-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 80px 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/front.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.ff-hero::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  right: -300px;
+  height: 680px;
+  width: 680px;
+  border-radius: 50%;
+  opacity: 0.1;
+  background: radial-gradient(
+    50% 50% at 50% 50%,
+    var(--accent-color) 0%,
+    rgba(34, 34, 34, 0) 100%
+  );
+  pointer-events: none;
+}
+.ff-hero__heading {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+.ff-hero__heading h1,
+.ff-hero__heading p {
+  color: #ffffff;
+}
+.ff-hero__heading h1 {
+  font-size: clamp(40px, 6vw, 72px);
+  margin-bottom: 24px;
+}
+.ff-hero__heading p {
+  max-width: 560px;
+  font-size: 18px;
+  line-height: 28px;
+  margin-bottom: 36px;
+}
+.ff-hero__btns {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-bottom: 80px;
+}
+.ff-btn--ghost {
+  background: transparent;
+  color: var(--heading-color);
+  border: 1px solid var(--heading-color);
+}
+.ff-btn--ghost:hover {
+  border-color: var(--accent-color);
+  color: var(--black-color);
+  background: var(--accent-color);
+}
+
+/* Stats */
+.ff-stats {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(150px, auto));
+  gap: 25px;
+  border: 1px solid var(--border-color);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 35px 40px;
+}
+.ff-stats__num {
+  font-family: var(--heading-font);
+  font-size: 42px;
+  font-weight: 600;
+  color: var(--heading-color);
+  letter-spacing: 2px;
+}
+.ff-stats__label {
+  color: var(--heading-color);
+  font-weight: 600;
+  margin: 4px 0 2px;
+}
+.ff-stats__sub {
+  font-size: 14px;
+  margin: 0;
+  color: var(--body-color);
+}
+
+/* Programs grid */
+.ff-programs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Program card: base + static border. Mouse-tracking glow comes from the
+   shared .ff-glow-hover class (see index.css) applied alongside this class. */
+.ff-program-card {
+  background: var(--gray-color);
+  border: 1px solid transparent;
+  padding: 32px 24px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.ff-program-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--border-color);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+.ff-program-card:hover::after {
+  opacity: 0;
+}
+.ff-program-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--accent-color);
+}
+.ff-program-card:hover .ff-program-card__icon {
+  background: var(--accent-color);
+  color: var(--black-color);
+}
+.ff-program-card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.ff-program-card p {
+  font-size: 14px;
+  margin-bottom: 18px;
+  color: var(--body-color);
+}
+
+/* Testimonials */
+.ff-testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+.ff-testimonial-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  gap: 20px;
+  background: var(--gray-color);
+  border: 1px solid var(--border-color);
+  padding: 28px;
+}
+.ff-stars i {
+  color: var(--accent-color);
+}
+
+/* Pricing */
+.ff-pricing-section {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/front.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding: 80px 0;
+  position: relative;
+}
+.ff-pricing-section .ff-section__title,
+.ff-pricing-section .ff-section__lead {
+  color: #ffffff;
+}
+.ff-pricing {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  position: relative;
+  padding-left: 60px;
+  padding-right: 60px;
+  z-index: 1;
+}
+.ff-price-card {
+  background: rgba(34, 34, 34, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  padding: 55px 40px 60px;
+  text-align: center;
+}
+.ff-price-card.is-featured {
+  border-color: var(--accent-color);
+}
+.ff-price-card h3 {
+  font-size: 16px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  font-family: var(--body-font);
+  font-weight: 600;
+  color: var(--heading-color);
+}
+.ff-price-card__price {
+  font-family: var(--heading-font);
+  font-size: 48px;
+  color: var(--accent-color);
+  font-weight: 600;
+  margin: 0;
+}
+.ff-price-card__price small {
+  font-size: 16px;
+  color: var(--body-color);
+}
+.ff-price-card__note {
+  font-size: 13px;
+  margin: 16px -40px 24px;
+  padding: 10px 0;
+  background: rgba(255, 255, 255, 0.06);
+  letter-spacing: 1.6px;
+  color: var(--heading-color);
+}
+.ff-price-card ul {
+  margin-bottom: 28px;
+  text-align: left;
+}
+.ff-price-card ul li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+.ff-price-card ul li i {
+  color: var(--accent-color);
+  margin-top: 3px;
+}
+.ff-price-card .ff-btn {
+  width: 100%;
+}
+
+/* Features (dumbbell section) */
+.home .ff-section__title {
+  margin-bottom: -10px;
+}
+
+.ff-section-dumbell {
+  width: 100%;
+  padding: 80px 20px 0 20px;
+  box-sizing: border-box;
+}
+.ff-features {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 500px;
+  gap: 10px;
+  align-items: center;
+}
+.ff-features__list {
+  min-width: 0; /* prevents overflow */
+  text-align: justify;
+}
+.ff-features__list li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 4px 18px;
+  margin-bottom: 28px;
+}
+.ff-features__list li h3 {
+  position: relative;
+  display: inline-block;
+  width: fit-content; /* shrink-to-content even inside flex/grid parents */
+}
+.ff-features__list li h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  height: 2px;
+  width: 100%;
+  background: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.ff-features__list li:hover h3::after {
+  transform: scaleX(1);
+}
+.ff-features__list p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--body-color);
+  line-height: 1.5;
+}
+.ff-features__icon {
+  grid-row: span 2;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-color);
+  font-size: 22px;
+}
+.ff-features__art {
+  width: 400px;
+  height: 550px;
+  background-image: url("/dumbell.png");
+  justify-self: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+}
+
+/* CTA */
+.ff-cta {
+  position: relative;
+  text-align: center;
+  padding: 80px 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/front.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .ff-features {
+    grid-template-columns: 1fr;
+  }
+  .ff-features__art {
+    height: 350px;
+    order: -1;
+  }
+}
+
+@media (max-width: 992px) {
+  .ff-stats,
+  .ff-programs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .ff-testimonials,
+  .ff-pricing {
+    grid-template-columns: 1fr;
+  }
+  .ff-features {
+    grid-template-columns: 1fr;
+  }
+  .ff-features__art {
+    order: -1;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .ff-stats {
+    grid-template-columns: 1fr 1fr;
+    padding: 30px 15px;
+  }
+}

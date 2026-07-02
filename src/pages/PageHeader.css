@@ -1,0 +1,37 @@
+.ff-page-header {
+  padding: 80px 0 50px;
+  border-bottom: 1px solid var(--border-color);
+}
+.ff-page-header .ff-container {
+  text-align: left;
+}
+.ff-page-header h1 {
+  font-size: clamp(36px, 6vw, 60px);
+  margin-bottom: 14px;
+  max-width: 900px;
+}
+
+.ff-breadcrumb {
+  display: flex;
+  gap: 8px;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+}
+.ff-breadcrumb li {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.ff-breadcrumb a {
+  color: var(--body-color);
+}
+.ff-breadcrumb a:hover {
+  color: var(--heading-color);
+}
+.ff-breadcrumb li:last-child span:not(.ff-breadcrumb__sep) {
+  color: var(--heading-color);
+}
+.ff-breadcrumb__sep {
+  color: var(--body-color);
+}

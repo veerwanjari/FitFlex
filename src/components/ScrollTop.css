@@ -1,0 +1,28 @@
+.ff-scrolltop {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 48px;
+  height: 48px;
+  background: var(--accent-color);
+  color: var(--black-color);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(120px);
+  transition: all 0.5s ease;
+  z-index: 60;
+  font-size: 20px;
+}
+.ff-scrolltop.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.ff-scrolltop:hover {
+  background: var(--heading-color);
+}

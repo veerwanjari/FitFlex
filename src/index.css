@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --heading-color: #fff;
+  --body-color: rgba(255, 255, 255, 0.6);
+  --gray-color: rgba(255, 255, 255, 0.04);
+  --black-color: #222;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --accent-color: #f2fd84;
+  --heading-font: "Sora", sans-serif;
+  --body-font: "Roboto", sans-serif;
+}
+
+/* Reset */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--black-color);
+  color: var(--body-color);
+  font-family: var(--body-font);
+  font-size: 16px;
+  line-height: 1.62em;
+  font-weight: 400;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+a:hover {
+  color: var(--accent-color);
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+button {
+  font-family: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--heading-font);
+  color: var(--heading-color);
+  font-weight: 600;
+  line-height: 1.2em;
+  margin: 0;
+}
+
+/* Layout */
+.ff-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ff-section {
+  width: 100%;
+  padding: 80px 20px;
+  position: relative;
+  box-sizing: border-box;
+}
+.ff-section__title {
+  font-size: 36px;
+  margin-bottom: 50px;
+  line-height: 1.2;
+}
+.ff-section__title .stroke {
+  -webkit-text-stroke: 1px var(--accent-color);
+  color: transparent;
+}
+.ff-section__head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
+}
+.ff-section__head h2 {
+  font-size: clamp(28px, 4vw, 44px);
+}
+
+/* Text utilities */
+.stroke {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--heading-color);
+}
+.text-center {
+  text-align: center;
+}
+
+/* Buttons */
+.ff-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 48px;
+  padding: 11px 32px;
+  background: var(--accent-color);
+  color: var(--black-color);
+  font-family: var(--heading-font);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.24px;
+  border-radius: 0;
+  border: 1px solid var(--accent-color);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.3s ease;
+}
+.ff-btn:hover {
+  background: transparent;
+  color: var(--heading-color);
+  border-color: var(--heading-color);
+}
+
+/* CTA content block (shared by Home's .ff-cta and About's .ff-cta-is-about) */
+.ff-cta__content {
+  max-width: 656px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+.ff-cta__content h2 {
+  font-size: clamp(30px, 5vw, 54px);
+  margin-bottom: 24px;
+}
+.ff-cta__content p {
+  color: var(--heading-color);
+  margin-bottom: 32px;
+  font-size: 18px;
+}
+
+/*
+  Reusable mouse-tracking glow border.
+  Add the "ff-glow-hover" class to any positioned element to get a
+  gradient border that follows the cursor on hover. Pair it with an
+  onMouseMove={handleGlowMove} from src/utils/glowHover.js to keep the
+  --x / --y custom properties updated.
+*/
+.ff-glow-hover {
+  position: relative;
+  overflow: hidden;
+}
+.ff-glow-hover::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  pointer-events: none;
+
+  background: radial-gradient(
+    350px circle at var(--x, 0px) var(--y, 0px),
+    var(--accent-color) 0%,
+    rgba(225, 255, 0, 0.8) 20%,
+    transparent 60%
+  );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.ff-glow-hover:hover::before {
+  opacity: 1;
+}
+
+/* Alternating background spotlights behind every top-level page section */
+body > section,
+main > section {
+  position: relative;
+  overflow: hidden;
+}
+body > section::before,
+main > section::before {
+  content: "";
+  position: absolute;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(242, 253, 132, 0.08) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+body > section > *,
+main > section > * {
+  position: relative;
+  z-index: 2;
+}
+/* 1st section: top left */
+body > section:nth-of-type(3n + 1)::before,
+main > section:nth-of-type(3n + 1)::before {
+  top: -20%;
+  left: -15%;
+}
+/* 2nd section: bottom right */
+body > section:nth-of-type(3n + 2)::before,
+main > section:nth-of-type(3n + 2)::before {
+  bottom: -20%;
+  right: -15%;
+}
+/* 3rd section: middle left */
+body > section:nth-of-type(3n + 3)::before,
+main > section:nth-of-type(3n + 3)::before {
+  top: 20%;
+  left: -20%;
+}
