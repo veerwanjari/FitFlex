@@ -184,7 +184,7 @@
 
 .ff-trainer-card__thumb img {
   width: 100%;
-  height: 100%;
+  height: 150%;
   object-fit: cover; /* Keeps image proportional */
   display: block;
 }
