@@ -1,14 +1,7 @@
 # FitFlex — React
 
-A React (Vite) conversion of the FitFlex gym landing page, with routing for
-Home, About, Classes, Class Details, Blog, Blog Details, Timetable, and
-Contact.
+FitFlex is a modern gym website built with React and Vite, featuring a clean, responsive, and user-friendly design. The project includes three pages: Home, About, and Contact, connected using React Router. The Home page is fully built with reusable React components, while the About and Contact pages follow the same design system for a consistent user experience. This project provides a solid foundation for a professional fitness or gym website.
 
-Only the Home page HTML was provided in the source project, so it's been
-fully rebuilt as React components (hero, animated stats, programs, testimonials,
-pricing, features, CTA). The other pages (About, Classes, Class Details, Blog,
-Blog Details, Timetable, Contact) are scaffolded with the same header/footer/
-design system and placeholder content — swap in real copy as needed.
 
 ## Setup
 
