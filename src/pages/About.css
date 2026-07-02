@@ -73,10 +73,17 @@
 
 /* Gym image + caption */
 .ff-gym-image {
+  position: relative;
+  min-height: 550px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
   background-image: url("/gym.jpeg");
-  background-size: 110% auto;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  border: 1px solid var(--border-color);
 }
 .ff-video__caption {
   width: min(100%, 700px);
